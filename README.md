@@ -2,6 +2,8 @@
 
 Institute/college management system for students, faculty, and admins. Built with Next.js (App Router), Mongoose (MongoDB), and NextAuth.
 
+**Repository:** [github.com/Rupali59/MIS](https://github.com/Rupali59/MIS) (public)
+
 **Run locally:** Port **9005** (dev and production). See [Setup](#setup) below.
 
 ## Tech stack
