@@ -26,11 +26,24 @@ Institute/college management system for students, faculty, and admins. Built wit
    - Set `NEXTAUTH_SECRET` (e.g. `openssl rand -base64 32`)
    - Set `NEXTAUTH_URL` (default `http://localhost:9006` when using port 9006)
 
-3. **Run**
+3. **Seed sample users (optional)**  
+   Creates one user per role so you can log in without registering:
+   ```bash
+   npm run seed
+   ```
+   Then use these **sample logins** (password for all: **Password1**):
+
+   | Role    | MIS ID | Password  |
+   |---------|--------|-----------|
+   | Student | 2001   | Password1 |
+   | Faculty | 8001   | Password1 |
+   | Admin   | 12001  | Password1 |
+
+4. **Run**
    ```bash
    npm run dev
    ```
-   App runs on **port 9006**. Open [http://localhost:9006](http://localhost:9006).
+   App runs on **port 9006**. Open [http://localhost:9006](http://localhost:9006). Log in at `/login` with a sample MIS ID and password above (after running `npm run seed`).
 
 ## Run with Docker
 

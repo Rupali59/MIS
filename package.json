@@ -8,7 +8,8 @@
     "start": "cross-env NODE_ENV=production next start -p 9006",
     "lint": "eslint",
     "log:lint": "npm run lint -- . 2>&1 | tee logs/lint.log",
-    "log:build": "npm run build 2>&1 | tee logs/build.log"
+    "log:build": "npm run build 2>&1 | tee logs/build.log",
+    "seed": "node scripts/seed.mjs"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
