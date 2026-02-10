@@ -11,7 +11,7 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const router = useRouter();
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") ?? "/dashboard/student";
+  const callbackUrl = searchParams.get("callbackUrl") ?? "/dashboard";
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -30,9 +30,8 @@ export default function LoginPage() {
       setError("Invalid MIS ID or password.");
       return;
     }
-    const role = (res?.ok && (res as { url?: string }).url) ? undefined : undefined;
     if (res?.ok) {
-      router.push("/dashboard");
+      router.push(callbackUrl);
       router.refresh();
     }
   }

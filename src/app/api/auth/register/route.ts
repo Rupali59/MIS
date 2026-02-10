@@ -113,7 +113,6 @@ export async function POST(req: Request) {
     }
     await connectDB();
 
-    let misId: number;
     const [minId, maxId] =
       role === "student" ? [2000, 7999] : role === "faculty" ? [8000, 11999] : [12000, 99999];
 
@@ -130,7 +129,7 @@ export async function POST(req: Request) {
           ? (existing as { f_id: number }).f_id
           : (existing as { id: number }).id
       : minId - 1;
-    misId = lastId + 1;
+    const misId = lastId + 1;
     if (misId > maxId) {
       return NextResponse.json({ error: "ID range exhausted" }, { status: 400 });
     }

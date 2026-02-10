@@ -1,0 +1,24 @@
+services:
+  app:
+    build: .
+    ports:
+      - "9006:9006"
+    environment:
+      - NODE_ENV=production
+      - PORT=9006
+      - MONGODB_URI=mongodb://mongo:27017/mis
+      - NEXTAUTH_URL=http://localhost:9006
+    env_file:
+      - .env.local
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

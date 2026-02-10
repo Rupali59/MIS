@@ -12,6 +12,7 @@ export async function GET(req: NextRequest) {
     await connectDB();
     const profile = await FacultyProfile.findOne({ f_id: token.misId }).lean();
     if (!profile) return NextResponse.json({ error: "Profile not found" }, { status: 404 });
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars -- omit photo from response
     const { photo, ...rest } = profile;
     return NextResponse.json(rest);
   } catch (e) {
@@ -34,6 +35,7 @@ export async function PUT(req: NextRequest) {
       { new: true }
     ).lean();
     if (!updated) return NextResponse.json({ error: "Profile not found" }, { status: 404 });
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars -- omit photo from response
     const { photo, ...rest } = updated;
     return NextResponse.json(rest);
   } catch (e) {

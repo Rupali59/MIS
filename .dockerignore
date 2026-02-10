@@ -1,0 +1,26 @@
+# Dependencies and build
+node_modules
+.next
+out
+build
+
+# Git and IDE
+.git
+.gitignore
+.cursor
+*.md
+!README.md
+
+# Local / env (pass at runtime)
+.env*
+logs
+legacy
+
+# Debug and misc
+*.log
+.DS_Store
+*.pem
+.vercel
+coverage
+*.tsbuildinfo
+next-env.d.ts

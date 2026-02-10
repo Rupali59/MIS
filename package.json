@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 9005",
-    "build": "NODE_ENV=production next build",
-    "start": "next start -p 9005",
-    "lint": "eslint"
+    "dev": "cross-env NODE_ENV=development next dev -p 9006",
+    "build": "cross-env NODE_ENV=production next build",
+    "start": "cross-env NODE_ENV=production next start -p 9006",
+    "lint": "eslint",
+    "log:lint": "npm run lint -- . 2>&1 | tee logs/lint.log",
+    "log:build": "npm run build 2>&1 | tee logs/build.log"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
@@ -19,6 +21,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "cross-env": "^7",
     "@tailwindcss/postcss": "^4",
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
