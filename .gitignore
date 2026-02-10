@@ -20,6 +20,9 @@
 # production
 /build
 
+# legacy Java app (archived; not part of new stack)
+/legacy
+
 # misc
 .DS_Store
 *.pem

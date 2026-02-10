@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MIS – Management Information System
 
-## Getting Started
+Institute/college management system for students, faculty, and admins. Built with Next.js (App Router), Mongoose (MongoDB), and NextAuth.
 
-First, run the development server:
+**Run locally:** Port **9005** (dev and production). See [Setup](#setup) below.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tech stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Next.js** (App Router), **TypeScript**, **Tailwind CSS**
+- **MongoDB** via **Mongoose**
+- **NextAuth.js** (Credentials, session-based auth)
+- **PDF generation** (pdfkit) for grade reports, payment receipts, roll slips
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Clone and install**
+   ```bash
+   npm install
+   ```
 
-## Learn More
+2. **Environment**
+   - Copy `.env.example` to `.env.local`
+   - Set `MONGODB_URI` (e.g. `mongodb://localhost:27017/mis` or MongoDB Atlas URI)
+   - Set `NEXTAUTH_SECRET` (e.g. `openssl rand -base64 32`)
+   - Set `NEXTAUTH_URL` (default `http://localhost:9005` when using port 9005)
 
-To learn more about Next.js, take a look at the following resources:
+3. **Run**
+   ```bash
+   npm run dev
+   ```
+   App runs on **port 9005**. Open [http://localhost:9005](http://localhost:9005).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Roles
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Student** (MIS ID 2000–7999): profile, qualifications, course registration, fee payment, grade report, feedback, photo upload
+- **Faculty** (8000–11999): profile, qualifications, payroll, timetable upload, attendance, course list PDF
+- **Admin** (12000+): admin profile, roll number generation, timetable upload, config
 
-## Deploy on Vercel
+## Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev` – development server on port 9005
+- `npm run build` – production build
+- `npm run start` – start production server on port 9005
+- `npm run lint` – run ESLint
