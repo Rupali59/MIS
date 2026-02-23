@@ -20,11 +20,16 @@ Institute/college management system for students, faculty, and admins. Built wit
    npm install
    ```
 
-2. **Environment**
-   - Copy `.env.example` to `.env.local`
-   - Set `MONGODB_URI` (e.g. `mongodb://localhost:27017/mis` or MongoDB Atlas URI)
-   - Set `NEXTAUTH_SECRET` (e.g. `openssl rand -base64 32`)
-   - Set `NEXTAUTH_URL` (default `http://localhost:9006` when using port 9006)
+2. **Environment**  
+   The repo includes three env files (committed with placeholders); use `.env.local` for real secrets locally (gitignored).
+
+   | File                 | When it's used |
+   |----------------------|----------------|
+   | `.env.development`   | Local dev (`npm run dev`) |
+   | `.env.preview`       | Vercel preview (PR/branch deploys); override in Vercel → Preview |
+   | `.env.production`    | Vercel production; override in Vercel → Production |
+
+   For local dev: copy `.env.example` to `.env.local` and set `MONGODB_URI`, `NEXTAUTH_SECRET`, and `NEXTAUTH_URL=http://localhost:9006`. Next.js merges `.env.development` with `.env.local` when running in development.
 
 3. **Seed sample users (optional)**  
    Creates one user per role so you can log in without registering:

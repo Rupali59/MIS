@@ -9,9 +9,18 @@
     "lint": "eslint",
     "log:lint": "npm run lint -- . 2>&1 | tee logs/lint.log",
     "log:build": "npm run build 2>&1 | tee logs/build.log",
-    "seed": "node scripts/seed.mjs"
+    "seed": "node scripts/seed.mjs",
+    "scrape:nitgoa": "node scripts/scrapeNitGoa.mjs",
+    "crawl:nitgoa": "node scripts/crawlNitGoa.mjs",
+    "ingest:nitgoa": "node scripts/ingestNitGoaPages.mjs",
+    "classify:nitgoa": "node scripts/classifyNitGoaPages.mjs",
+    "parse:nitgoa:departments-faculty": "node scripts/parseNitgoaDepartmentsAndFaculty.mjs",
+    "parse:nitgoa:programs": "node scripts/parseNitgoaPrograms.mjs",
+    "parse:nitgoa:forms-library": "node scripts/parseNitgoaFormsAndLibrary.mjs",
+    "parse:nitgoa:research-placement-alumni": "node scripts/parseNitgoaResearchPlacementAlumni.mjs"
   },
   "dependencies": {
+    "node-html-parser": "^6.1.13",
     "bcryptjs": "^3.0.3",
     "mongoose": "^9.2.0",
     "next": "16.1.6",
